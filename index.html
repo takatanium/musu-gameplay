@@ -14,7 +14,7 @@
 
 <script type="text/javascript">
 
-var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update, render: render });
 
 function preload() {
 
@@ -89,7 +89,6 @@ function create() {
     
     //User Input
     cursors = game.input.keyboard.createCursorKeys();
-    game.input.addPointer();
     
 }
 
@@ -172,8 +171,10 @@ function update() {
         //enemy.addChild(enemyText);
         //enemyText.anchor.set(0.5, 2.5);
     }
-    
-    
+}
+
+function render () {
+    game.debug.pointer(game.input.pointer1);
 }
 
 </script>
